@@ -1,0 +1,88 @@
+body.log {
+  background-color: #a6a5c4;
+}
+body.reg {
+  background-color: #4e54c8;
+}
+
+
+fieldset {
+  width: 600px;
+  height: 220px;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  position: absolute;
+  z-index: 100;
+}
+
+table {
+  width: 300px;
+  margin: auto;
+}
+
+td {
+  padding: 5px 2px;
+}
+
+div {
+  margin-top: 1em;
+}
+
+div.link {
+  width: 90%;
+  margin-top: .5em;
+  text-align: right;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  border-bottom: 1px solid blue;
+}
+
+a:active:visited {
+  text-decoration: none;
+  border-bottom: 1px solid blue;
+}
+
+button {
+  width: 80px;
+  font-size: smaller;
+  padding: 2px;
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.title {
+  width: 100%;
+  position: absolute;
+  top: 52vh;
+  z-index: 2;
+}
+
+.title h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.separator {
+  bottom: -4px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}

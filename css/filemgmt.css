@@ -1,0 +1,149 @@
+    body {
+      background-color: #a6a5c4;
+    }
+
+    .wrap {
+      margin-top: 0;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .sideNav {
+      width: 5vw;
+      background-color: #a6a5c4;
+      color: #fff;
+      text-align: center;
+    }
+
+    .content {
+      margin-top: 0;
+      width: 95vw;
+      min-height: 100vh;
+      background-color: #fff;
+    }
+
+    fieldset {
+      width: 98%;
+      margin: 5% auto;
+      text-align: center;
+      border-radius: 10px;
+      border: none;
+      background-color: rgba(255, 255, 255, .9);
+      position: relative;
+      z-index: 100;
+    }
+
+    table {
+      width: 100%;
+      margin: auto auto 1em;
+      text-align: left;
+      border-collapse: collapse;
+      border: 1px;
+    }
+
+    th {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #a6a5c4;
+      letter-spacing: 1em;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #a6a5c4;
+    }
+
+    td.title {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    div {
+      margin-top: 1em;
+    }
+
+    a.link {
+      color: #4e54c8;
+      text-decoration: none;
+      border-bottom: 1px solid #4e54c8;
+    }
+
+    a.link:hover {
+      text-decoration: none;
+      border-bottom: 3px solid #4e54c8;
+    }
+
+    a.icon {
+      text-decoration: none;
+      color: #4e54c8;
+    }
+
+    a.icon:hover {
+      text-decoration: none;
+      color: #a6a5c4;
+    }
+
+    span {
+      color: #6699FF;
+    }
+
+    /* カーソルを重ねる要素 */
+    div.tooltip {
+      margin: auto;
+      position: relative;
+      /* ツールチップの位置の基準に */
+      cursor: pointer;
+      /* カーソルを当てたときにポインターに */
+    }
+
+    /* ツールチップのテキスト */
+    span.tooltip-text {
+      opacity: 0;
+      /* はじめは隠しておく */
+      visibility: hidden;
+      /* はじめは隠しておく */
+      position: absolute;
+      /* 絶対配置 */
+      left: 50%;
+      /* 親に対して中央配置 */
+      transform: translateX(-50%);
+      /* 親に対して中央配置 */
+      bottom: -30px;
+      /* 親要素下からの位置 */
+      display: inline-block;
+      padding: 5px;
+      /* 余白 */
+      white-space: nowrap;
+      /* テキストを折り返さない */
+      font-size: 0.8rem;
+      /* フォントサイズ */
+      line-height: 1.3;
+      /* 行間 */
+      background: #333;
+      /* 背景色 */
+      color: #fff;
+      /* 文字色 */
+      border-radius: 3px;
+      /* 角丸 */
+      transition: 0.3s ease-in;
+      /* アニメーション */
+    }
+
+    /* ホバー時にツールチップの非表示を解除 */
+    div.tooltip:hover .tooltip-text {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    span.tooltip-text:before {
+      content: '';
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      margin-left: -7px;
+      border: 7px solid transparent;
+      border-bottom: 7px solid #333;
+    }
+
