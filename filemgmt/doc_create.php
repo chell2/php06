@@ -10,7 +10,9 @@ if (
   !isset($_POST['doc_contents']) || $_POST['doc_contents'] == '' ||
   !isset($_POST['created_by']) || $_POST['created_by'] == ''
 ) {
-  echo json_encode(["error_msg" => "no input"]);
+  // echo json_encode(["error_msg" => "no input"]);
+  echo "<script>alert('Error:すべて入力してください．');
+    setTimeout(function(){window.location.href = '../filemgmt/doc_read.php';}, 1)</script>";
   exit();
 }
 

@@ -36,8 +36,8 @@ if ($status == false) {
   echo json_encode(["error_msg" => "{$error[2]}"]);
   exit();
 } else {
-  $alert = "<script type='text/javascript'>alert('更新しました.');</script>";
-  echo $alert;
+  // echo "<script>alert('更新しました．');
+  // setTimeout(function(){window.location.href = '../filemgmt/doc_read.php';}, 1)</script>";
   header("Location:../filemgmt/doc_read.php");
   exit();
 }

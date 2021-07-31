@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: localhost
--- 生成日時: 2021 年 7 月 29 日 16:52
+-- 生成日時: 2021 年 7 月 31 日 03:55
 -- サーバのバージョン： 10.4.19-MariaDB
 -- PHP のバージョン: 8.0.7
 
@@ -58,15 +58,22 @@ INSERT INTO `approval_table` (`id`, `user_id`, `doc_id`, `created_at`) VALUES
 (41, 6, 2, '2021-07-15 23:23:55'),
 (42, 6, 3, '2021-07-15 23:23:57'),
 (43, 6, 4, '2021-07-15 23:23:58'),
-(70, 1, 1, '2021-07-16 07:01:47'),
-(71, 1, 3, '2021-07-16 07:01:48'),
-(72, 1, 6, '2021-07-16 07:01:49'),
 (73, 1, 7, '2021-07-16 07:01:50'),
 (75, 2, 4, '2021-07-16 07:01:59'),
 (90, 2, 8, '2021-07-17 02:06:04'),
 (109, 1, 11, '2021-07-17 04:50:14'),
-(112, 2, 2, '2021-07-25 11:20:01'),
-(113, 2, 13, '2021-07-29 22:41:49');
+(113, 2, 13, '2021-07-29 22:41:49'),
+(115, 1, 1, '2021-07-30 00:02:53'),
+(117, 1, 3, '2021-07-30 00:02:56'),
+(118, 1, 14, '2021-07-30 00:02:57'),
+(119, 1, 15, '2021-07-30 00:02:59'),
+(120, 1, 16, '2021-07-30 00:03:01'),
+(122, 3, 17, '2021-07-30 20:57:57'),
+(123, 3, 12, '2021-07-30 20:58:03'),
+(124, 3, 18, '2021-07-30 20:58:09'),
+(126, 2, 1, '2021-07-31 09:52:30'),
+(129, 1, 12, '2021-07-31 10:14:37'),
+(132, 1, 17, '2021-07-31 10:17:05');
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,7 @@ CREATE TABLE `document_table` (
 --
 
 INSERT INTO `document_table` (`id`, `doc_title`, `doc_contents`, `upfile`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, '園芸農業総合支援事業の交付決定について', '園芸', NULL, '2021-07-14 23:50:45', '2021-07-29 23:02:41', 2, 2),
+(1, '園芸農業総合支援事業の交付決定について', '園芸', NULL, '2021-07-14 23:50:45', '2021-07-30 21:06:32', 2, 3),
 (2, '畜産総合対策事業の承認申請について', '畜産', NULL, '2021-07-14 23:51:53', '2021-07-29 22:34:11', 1, 2),
 (3, '園芸農業補助金交付要綱の改正について', '園芸', NULL, '2021-07-14 23:56:27', '2021-07-29 22:34:18', 2, 2),
 (4, '豚熱の県内発生状況について', '畜産', NULL, '2021-07-15 00:00:56', '2021-07-29 22:34:24', 1, 2),
@@ -101,8 +108,9 @@ INSERT INTO `document_table` (`id`, `doc_title`, `doc_contents`, `upfile`, `crea
 (14, 'スマート農業推進対策事業要望のとりまとめについて', '園芸', NULL, '2021-07-28 23:13:11', '2021-07-29 22:38:07', 2, 2),
 (15, '収入保険研修会について', '水田', NULL, '2021-07-28 23:22:10', '2021-07-29 22:37:57', 2, 2),
 (16, '水田農業機械補助事業の内示について', '水田', NULL, '2021-07-28 23:22:18', '2021-07-29 22:38:32', 2, 2),
-(17, 'test5', 'aa', NULL, '2021-07-28 23:22:22', '2021-07-28 23:22:22', 2, 2),
-(18, 'test', 'test', NULL, '2021-07-29 23:24:16', '2021-07-29 23:24:16', 2, 2);
+(17, '高収益時期作支援事業のホームページ掲載について', '園芸', NULL, '2021-07-28 23:22:22', '2021-07-30 20:59:03', 2, 3),
+(18, '令和3年度畜産農家離脱調査について', '畜産', NULL, '2021-07-29 23:24:16', '2021-07-30 21:02:49', 2, 3),
+(19, '乳用牛飼養戸数調査', '畜産', NULL, '2021-07-31 10:00:06', '2021-07-31 10:00:06', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -113,10 +121,22 @@ INSERT INTO `document_table` (`id`, `doc_title`, `doc_contents`, `upfile`, `crea
 CREATE TABLE `file_table` (
   `id` int(12) NOT NULL,
   `doc_id` int(12) NOT NULL,
-  `file_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_name` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `file_path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `uploaded_at` datetime NOT NULL
+  `caption` varchar(140) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `uploaded_at` datetime NOT NULL,
+  `uploaded_by` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- テーブルのデータのダンプ `file_table`
+--
+
+INSERT INTO `file_table` (`id`, `doc_id`, `file_name`, `file_path`, `caption`, `uploaded_at`, `uploaded_by`) VALUES
+(6, 1, 'hisai6.jpg', '../files/2021073102532951c32a4a7d1104b0f5aab1651539d7f1.jpg', '園芸イメージ', '2021-07-31 09:53:29', 2),
+(7, 4, 'tonko-33.pdf', '../files/202107310254427fafe2a5870361da22c2c0532fdd3999.pdf', '豚コレラ農水省チラシ', '2021-07-31 09:54:42', 2),
+(8, 12, 'tanbo.jpeg', '../files/202107310257399a123634f869a17259ae17313eef69c4.jpeg', '水田イメージ', '2021-07-31 09:57:39', 2),
+(9, 19, 'f009-r02-001.xls', '../files/2021073103132043d4bdf7f4dbc03cdc721ab228810cc8.xls', '農水省統計調査', '2021-07-31 10:13:20', 1);
 
 -- --------------------------------------------------------
 
@@ -149,9 +169,7 @@ INSERT INTO `users_table` (`id`, `username`, `position`, `password`, `is_admin`,
 (8, 'jicho', 'DeputyDirectorGeneral', '88', 0, 0, '2021-07-14 23:40:20'),
 (9, 'boo', 'DirectorGeneral', '99', 0, 0, '2021-07-14 23:44:45'),
 (10, 'tom', 'Mayer', '00', 0, 0, '2021-07-15 22:34:46'),
-(11, 'anonymous', 'Hacker', 'hello!', 0, 0, '2021-07-16 06:35:08'),
-(12, '1000', 'test', 'test', 0, 0, '2021-07-22 02:52:41'),
-(13, 'test', 'test', 'qq', 0, 0, '2021-07-24 15:38:06');
+(11, 'anonymous', 'Hacker', 'hello!', 0, 0, '2021-07-16 06:35:08');
 
 --
 -- ダンプしたテーブルのインデックス
@@ -189,19 +207,19 @@ ALTER TABLE `users_table`
 -- テーブルの AUTO_INCREMENT `approval_table`
 --
 ALTER TABLE `approval_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- テーブルの AUTO_INCREMENT `document_table`
 --
 ALTER TABLE `document_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- テーブルの AUTO_INCREMENT `file_table`
 --
 ALTER TABLE `file_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- テーブルの AUTO_INCREMENT `users_table`
